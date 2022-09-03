@@ -69,4 +69,9 @@ describe('Testing core blogging functionalities', () => {
   afterAll(async () => {
     await arlocal.stop();
   });
+
+  it('should deploy contract', async () => {
+    const contractTx = await warp.arweave.transactions.get(contractId);
+    expect(contractTx).not.toBeNull();
+  });
 });

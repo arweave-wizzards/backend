@@ -78,4 +78,19 @@ describe('Testing core blogging functionalities', () => {
   it('should read Blog state', async () => {
     expect((await blog.readState()).cachedValue.state).toEqual(initialState);
   });
+
+  it('should properly add posts', async () => {
+    await blog.writeInteraction({
+      function: 'addPost',
+      content: 'Hello world!'
+    });
+
+    const { cachedValue } = await blog.readState();
+    expect(cachedValue.state.posts[0]).toEqual({
+      id: 1,
+      creator: owner,
+      content: 'Hello world!',
+      votes: { addresses: [], status: 0 }
+    });
+  });
 });

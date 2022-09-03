@@ -1,3 +1,3 @@
 import { Post } from './post';
 
-export type PostResult = Post;
+export type BlogResult = Post;

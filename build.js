@@ -6,7 +6,7 @@ const contracts = ['/contracts/contract.ts'];
 build({
   entryPoints: contracts.map((source) => {
     return `./src${source}`;
-  }),
+  }) ,
   outdir: './dist',
   minify: false,
   bundle: true,

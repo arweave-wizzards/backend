@@ -7,6 +7,5 @@ export interface Post {
       status: number;
     };
     timestamp: number;
-    category: string;
-    title: string;
+    category: string
   }

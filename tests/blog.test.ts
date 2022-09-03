@@ -74,4 +74,8 @@ describe('Testing core blogging functionalities', () => {
     const contractTx = await warp.arweave.transactions.get(contractId);
     expect(contractTx).not.toBeNull();
   });
+
+  it('should read Blog state', async () => {
+    expect((await blog.readState()).cachedValue.state).toEqual(initialState);
+  });
 });

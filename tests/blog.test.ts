@@ -1,7 +1,7 @@
 import ArLocal from 'arlocal';
 import { JWKInterface } from 'arweave/node/lib/wallet';
 import { LoggerFactory, Warp, WarpFactory, Contract } from 'warp-contracts';
-import { BlogState } from '../src/contracts/model/blogState';
+import { BlogState } from '../src/contracts/model/blog-state';
 import fs from 'fs';
 import path from 'path';
 

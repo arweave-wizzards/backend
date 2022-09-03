@@ -11,17 +11,17 @@ export const downvoteMessage = async (
   ): Promise<ContractResult> => {
     const message = state.posts.find((m) => (m.id = id));
   
-    if (!message) {
-        throw new ContractError(`Post does not exist.`);
-      }
-    
-      if (caller == message.author) {
-        throw new ContractError(`Post author cannot vote for they own post.`);
-      }
-    
-      if (message.votes.addresses.includes(caller)) {
-        throw new ContractError(`Caller has already voted.`);
-  
+   if (!message) {
+    throw new ContractError(`Post does not exist.`);
+  }
+
+  if (caller == message.author) {
+    throw new ContractError(`Post author cannot vote for they own post.`);
+  }
+
+  if (message.votes.addresses.includes(caller)) {
+    throw new ContractError(`Caller has already voted.`);
+  }
     message.votes.status--;
     message.votes.addresses.push(caller);
   

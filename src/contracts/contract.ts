@@ -16,5 +16,8 @@ export async function handle(
   switch (input.function) {
     case 'addPost':
       return await addPost(state, action);
+    case 'addPost':
+      return await addPost(state, action);
+
   }
 }

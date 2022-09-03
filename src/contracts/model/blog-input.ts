@@ -6,6 +6,7 @@ export interface BlogInput {
   content: string;
   title: string;
   category: PostCategory;
+  author: string;
 }
 
 

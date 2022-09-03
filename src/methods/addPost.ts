@@ -1,21 +1,22 @@
 // import { ArditAction, ArditState, ContractResult } from '../../types/types';
 import { time, timeStamp } from 'console';
-import { BlogAction } from '../../model/blog-action';
-import { BlogState } from '../../model/blog-state';
-import { ContractResult } from '../../model/contract-result';
+import { BlogAction } from '../contracts/model/blog-action';
+import { BlogState } from '../contracts/model/blog-state';
+import { ContractResult } from '../contracts/model/contract-result';
 
 declare const ContractError;
 
 export const addPost = async (
   state: BlogState,
-  { caller, input: { content } }: BlogAction
+  { caller, input: { content, title, category } }: BlogAction
 ): Promise<ContractResult> => {
   const posts = state.posts;
   if (!content) {
     throw new ContractError(`Creator must provide a post content.`);
   }
 
-  const id = posts.length == 0 ? 1 : posts.length + 1;
+  let id = posts.length == 0 ? 1 : posts.length + 1;
+  let timestamp = Date.now();
 
   state.posts.push({
     id,
@@ -24,7 +25,10 @@ export const addPost = async (
     votes: {
       addresses: [],
       status: 0
-    }
+    },
+    timestamp,
+    title,
+    category
   });
 
   return { state };

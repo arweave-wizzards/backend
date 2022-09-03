@@ -2,6 +2,7 @@
 node_modules
 /dist
 cache
+.env
 
 # Log files
 npm-debug.log*

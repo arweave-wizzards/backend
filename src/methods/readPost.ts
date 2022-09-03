@@ -15,7 +15,7 @@ declare const ContractError;
 //   return { result: message };
 // };
 
-export const readPostByCreator = async (state: BlogState, { input: { author } }: BlogAction): Promise<ContractResult> => {
+export const readPost = async (state: BlogState, { input: { author } }: BlogAction): Promise<ContractResult> => {
   
   const message = state.posts.find((m) => m.author == author);
 

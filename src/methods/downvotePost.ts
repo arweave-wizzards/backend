@@ -5,7 +5,7 @@ import { ContractResult } from '../contracts/model/contract-result';
 
 declare const ContractError;
 
-export const downvoteMessage = async (
+export const downvotePost = async (
     state: BlogState,
     { caller, input: { id } }: BlogAction
   ): Promise<ContractResult> => {

@@ -1,11 +1,11 @@
 import { BlogState } from './model/blog-state';
 import { BlogAction } from './model/blog-action';
 import { BlogResult } from './model/blog-result';
-import { addPost } from '../methods/addPost';
+import { addPost } from './methods/addPost';
 import { ContractResult } from './model/contract-result';
-import { readPost } from '../methods/readPost';
-import { downvotePost } from '../methods/downvotePost';
-import { upvotePost } from '../methods/upvotePost';
+import { readPost } from './methods/readPost';
+import { downvotePost } from './methods/downvotePost';
+import { upvotePost } from './methods/upvotePost';
 
 declare const ContractError;
 

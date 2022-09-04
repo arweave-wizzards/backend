@@ -1,7 +1,7 @@
 
-import { BlogAction } from '../contracts/model/blog-action';
-import { BlogState } from '../contracts/model/blog-state';
-import { ContractResult } from '../contracts/model/contract-result';
+import { BlogAction } from '../model/blog-action';
+import { BlogState } from '../model/blog-state';
+import { ContractResult } from '../model/contract-result';
 
 declare const ContractError;
 

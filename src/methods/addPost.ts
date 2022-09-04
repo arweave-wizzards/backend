@@ -12,7 +12,7 @@ export const addPost = async (
 ): Promise<ContractResult> => {
   const posts = state.posts;
   if (!content) {
-    throw new ContractError(`Creator must provide a post content.`);
+    throw new ContractError(`Author must provide post content.`);
   }
 
   let id = posts.length == 0 ? 1 : posts.length + 1;

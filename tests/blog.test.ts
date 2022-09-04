@@ -80,25 +80,50 @@ describe('Testing core blogging functionalities', () => {
   });
 
   it('should properly add posts', async () => {
-
-    let timestamp = Date.now()
+    let timestamp = Date.now();
     await blog.writeInteraction({
       function: 'addPost',
       content: 'Hello world!',
-      title: '10 most',
+      title: 'Example title',
       category: 'Beginner'
     });
 
     const { cachedValue } = await blog.readState();
 
-
-
     expect(cachedValue.state.posts[0].id).toEqual(1);
     expect(cachedValue.state.posts[0].author).toEqual(owner);
     expect(cachedValue.state.posts[0].category).toEqual('Beginner');
-    expect(cachedValue.state.posts[0].title).toEqual('10 most');
+    expect(cachedValue.state.posts[0].title).toEqual('Example title');
     expect(cachedValue.state.posts[0].content).toEqual('Hello world!');
   });
+
+  it('should not add post without content', async () => {
+    await expect(
+      blog.writeInteraction({ function: 'addPost' }, { strict: true })
+    ).rejects.toThrow(
+      'Cannot create interaction: Author must provide post content.'
+    );
+  });
+
+  it('should view post', async () => {
+    await blog.writeInteraction({
+      function: 'addPost',
+      content: 'Hello world!',
+      title: 'Example title',
+      category: 'Beginner'
+    });
+
+    const { result } = await blog.viewState({
+      function: 'readPost',
+      id: 1
+    });
+
+    expect(result).toEqual({
+      id: 1,
+      creator: owner,
+      content: 'Hello world!',
+      title: 'Example title',
+      votes: { addresses: [], status: 0 }
+    });
+  });
 });
-
-

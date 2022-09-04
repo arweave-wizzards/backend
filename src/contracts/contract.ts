@@ -3,9 +3,10 @@ import { BlogAction } from './model/blog-action';
 import { BlogResult } from './model/blog-result';
 import { addPost } from './methods/addPost';
 import { ContractResult } from './model/contract-result';
-import { readPost } from './methods/readPost';
+
 import { downvotePost } from './methods/downvotePost';
 import { upvotePost } from './methods/upvotePost';
+import { readPost } from './methods/readPost';
 
 declare const ContractError;
 
@@ -25,6 +26,7 @@ export async function handle(
       return await downvotePost(state, action);
     case 'upvotePost':
       return await upvotePost(state, action);
+
 
   }
 }

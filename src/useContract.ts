@@ -26,9 +26,9 @@ console.log(stateOfContract);
 
 await contract.writeInteraction({
     function: 'addPost',
-    content: 'Hello world!',
+    content: 'Second one ',
     title: 'Example title',
-    category: 'Beginner'
+    category: 'Expert'
   });
 
 // const { cachedValue } = await contract.readState();
